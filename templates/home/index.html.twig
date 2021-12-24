@@ -1,0 +1,74 @@
+
+{% extends 'base.html.twig' %}
+{% block body %}
+    
+{% if app.user %}
+    <section>
+		<div class="container">
+			<div class="row">
+				
+				
+				<div class="col-sm-12 padding-right">
+					<div class="features_items"><!--features_items-->
+                        <h2 class="title text-center">Nos Services</h2>
+
+
+
+
+
+                        {% for service in services %}
+
+						
+						<div class="col-sm-3">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+										<div class="productinfo text-center">
+											<img src="images/home/product.jpg" alt="" />
+											<h2>{{ service.montMens }}</h2>
+											<p>{{ service.typeService }}</p>
+											<a href=" {{path('vente_path',{id:service.id})}} " class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Achter ce service</a>
+										</div>
+										<div class="product-overlay">
+											<div class="overlay-content">
+												<h2>{{ service.montMens }}</h2>
+												<p>{{ service.typeService }}</p>
+												<a href="
+                                                 {{path('vente_path',{id:service.id})}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Achter ce service</a>
+											</div>
+										</div>
+								</div>
+
+							</div>
+						</div>
+{% endfor %}
+
+
+
+
+					</div><!--features_items-->
+					
+				
+					
+				</div>
+			</div>
+		</div>
+	</section>
+
+  
+    <script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.scrollUp.min.js"></script>
+	<script src="js/price-range.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/main.js"></script>
+
+{% else %}
+    
+	<div class="container">
+		<h1> Bienvenue chez Nous </h1>
+	</div>
+
+	
+	
+    {% endif %}
+{% endblock %}

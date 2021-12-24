@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vente index{% endblock %}
+
+{% block body %}
+<div class="container" >
+ <h1>Vente </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+              
+                <th>client</th>
+                <th>Service</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for vente in ventes %}
+            <tr>
+
+                <td>{{ vente.client }}</td>
+                <td>{{ vente.service }}</td> 
+                     <a href="{{ path('vente_index') }}">back to list</a>
+                   <a href="{{ path('vente_edit', {'id': vente.id}) }}">edit</a>
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}
